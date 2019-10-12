@@ -22,7 +22,6 @@ public class HuntAndKillGenerator implements MazeGenerator {
 	        for(int j = 0; j < maze.sizeC; j++) {
 	            unvisited.add(maze.map[i][j]);
             }
-            System.out.println("\n");
         }
 
         Cell current = getRandomCell(unvisited);
@@ -35,6 +34,15 @@ public class HuntAndKillGenerator implements MazeGenerator {
 
 	    //While unvisited cells exist
 	    while(visited.size() < (maze.sizeC * maze.sizeR)) {
+
+	        if(current.tunnelTo != null) {
+
+	            next = current.tunnelTo;
+	            current = next;
+                unvisited.remove(current);
+                visited.add(current);
+
+            }
 
 	        //IF current has unvisited neighbours
             ArrayList<Cell> unvisitedNeighbours = getUnvistedNeighbours(current);
