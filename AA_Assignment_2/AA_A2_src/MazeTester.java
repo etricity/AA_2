@@ -4,7 +4,6 @@ import java.util.*;
 import maze.*;
 import mazeGenerator.*;
 import mazeSolver.*;
-import mazeSolver.SampleSolver;
 
 /**
  * 
